@@ -1,15 +1,15 @@
 {
-  "name": "electron-quick-start",
+  "name": "testelectronapp",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "author": "HuynhTuan",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "build --dir",
-    "dist": "build"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/HuynhTuanWD/demo-autoupdate-electron-app",
   "keywords": [
     "Electron",
     "quick",
@@ -17,12 +17,16 @@
     "tutorial",
     "demo"
   ],
+  "build": {
+    "appId": "100"
+  },
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^6.0.10",
     "electron-builder": "^21.2.0"
   },
   "dependencies": {
+    "electron-log": "^3.0.8",
     "electron-updater": "^4.1.2"
   }
 }

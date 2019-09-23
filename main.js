@@ -1,9 +1,17 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const path = require('path')
-
+const log = require('electron-log');
+const { autoUpdater } = require("electron-updater")
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
+app.on('ready', function()  {
+  autoUpdater.checkForUpdatesAndNotify();
+});
 let mainWindow
 
 function createWindow () {
